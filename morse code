@@ -1,0 +1,118 @@
+# q9_input_i: Morse code string to decode (space-separated Morse code)
+q9_input_i = "... --- ...   - ---   - .... ."
+
+# Initialize variables for decoding
+output9_i = ""
+q9_input_i = q9_input_i.strip()  # Strip any leading/trailing spaces
+morse_letters = q9_input_i.split('   ')  # Split by three spaces for words
+
+# Initialize index for looping through words
+word_index = 0
+
+# Start decoding
+while word_index < len(morse_letters):
+    word = morse_letters[word_index].split(' ')  # Split by single space for characters
+    char_index = 0
+    while char_index < len(word):
+        morse_char = word[char_index]
+        
+        # Decode the character
+        if morse_char == '.-': 
+            output9_i += 'A'
+        elif morse_char == '-..': 
+            output9_i += 'D'
+        elif morse_char == '.': 
+            output9_i += 'E'
+        elif morse_char == '..--.': 
+            output9_i += 'F'
+        elif morse_char == '....': 
+            output9_i += 'H'
+        elif morse_char == '..': 
+            output9_i += 'I'
+        elif morse_char == '--': 
+            output9_i += 'M'
+        elif morse_char == '-.': 
+            output9_i += 'N'
+        elif morse_char == '---': 
+            output9_i += 'O'
+        elif morse_char == '...': 
+            output9_i += 'S'
+        elif morse_char == '-': 
+            output9_i += 'T'
+        elif morse_char == '..-': 
+            output9_i += 'U'
+        elif morse_char == '-.--': 
+            output9_i += 'Y'
+        elif morse_char == '.----': 
+            output9_i += '1'
+        elif morse_char == '..---': 
+            output9_i += '2'
+        
+        char_index += 1
+    
+    if word_index < len(morse_letters) - 1:
+        output9_i += ' '  # Add space between words
+    
+    word_index += 1
+
+# Print the decoded message
+print("Decoded Message: ", output9_i)
+
+
+
+
+# q9_input_ii: Plain text message to encode
+q9_input_ii = "SOS TO THE"
+
+# Initialize variables for encoding
+output9_ii = ""
+q9_input_ii = q9_input_ii.upper()  # Convert input to uppercase for case-insensitivity
+
+# Initialize index for looping through characters
+char_index = 0
+
+# Start encoding
+while char_index < len(q9_input_ii):
+    char = q9_input_ii[char_index]
+    
+    if char != ' ':  # Ignore spaces
+        # Encode the character
+        if char == 'A': 
+            output9_ii += '.- '
+        elif char == 'D': 
+            output9_ii += '-.. '
+        elif char == 'E': 
+            output9_ii += '. '
+        elif char == 'F': 
+            output9_ii += '..--. '
+        elif char == 'H': 
+            output9_ii += '.... '
+        elif char == 'I': 
+            output9_ii += '.. '
+        elif char == 'M': 
+            output9_ii += '-- '
+        elif char == 'N': 
+            output9_ii += '-. '
+        elif char == 'O': 
+            output9_ii += '--- '
+        elif char == 'S': 
+            output9_ii += '... '
+        elif char == 'T': 
+            output9_ii += '- '
+        elif char == 'U': 
+            output9_ii += '..- '
+        elif char == 'Y': 
+            output9_ii += '-.-- '
+        elif char == '1': 
+            output9_ii += '.---- '
+        elif char == '2': 
+            output9_ii += '..--- '
+    else:
+        output9_ii += '   '  # Add three spaces for word separation
+    
+    char_index += 1
+
+# Print the encoded Morse message
+print("Encoded Morse Message: ", output9_ii.strip())
+
+
